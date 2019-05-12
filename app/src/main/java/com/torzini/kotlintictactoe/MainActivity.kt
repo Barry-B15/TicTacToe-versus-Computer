@@ -6,6 +6,7 @@ import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.random.Random
 
 /**
  *
@@ -110,6 +111,16 @@ class MainActivity : AppCompatActivity() {
             board.placeMove(cell, Board.PLAYER)
             // call the placeMove on the cell. always the PLAYER as the computer plays automatically
 
+            //vid 4-2.2 check that available cell is not empty
+            if (board.availableCells.isNotEmpty()) {
+                // vid 4-2.1 get a random cell from empty cell
+                // cCell - computer cell, passing a Random int 0 which is the beginning,
+                // and the board.availableCells.size) the highest possible available cell
+                val cCell = board.availableCells[Random.nextInt(0, board.availableCells.size)]
+
+                // 4-2.3 place the computer move on any available cell
+                board.placeMove(cCell, Board.COMPUTER)
+            }
             //3-5.2 map the actual board to the ui
             mapBoardToUi()
         }

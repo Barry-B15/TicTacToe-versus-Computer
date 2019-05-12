@@ -59,4 +59,20 @@ package com.torzini.kotlintictactoe
  * 7. In onCreate(), code the restart button
  *     when the reset btn is called, we have a new board and all values deleted
  *
+ * =====================================================
+ * Vid 4: Computer Moves
+ * https://www.youtube.com/watch?v=h5Nzgp5HZos
+ *
+ * We will create a dumb algorithm that will make the computer move
+ * Select a random cell from all the empty cells
+ *
+ * 1. In Board :
+ *      - def a val availableCells and put all the available Cells that are empty
+ *
+ * 2. In MainActivity class, when the player has placed a move,
+ *      inner class > override fun onClick
+ *
+ *          - get a random cell from empty cell
+ *      check that the available cell is not empty
+ *      place the computer move
  */
