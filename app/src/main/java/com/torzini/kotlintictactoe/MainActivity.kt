@@ -6,7 +6,6 @@ import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.random.Random
 
 /**
  *
@@ -115,8 +114,15 @@ class MainActivity : AppCompatActivity() {
                 board.placeMove(cell, Board.PLAYER)
                 // call the placeMove on the cell. always the PLAYER as the computer plays automatically
 
+                //vid 7-5
+                board.minimax(0, Board.COMPUTER)
+                board.computersMove?.let {
+                    board.placeMove(it, Board.COMPUTER)
+                }
+
+
                 //vid 4-2.2 check that available cell is not empty
-                if (board.availableCells.isNotEmpty()) {
+                /*if (board.availableCells.isNotEmpty()) { //vid 7-4 we no longer need this if since we are already checking if game is not over
                     // vid 4-2.1 get a random cell from empty cell
                     // cCell - computer cell, passing a Random int 0 which is the beginning,
                     // and the board.availableCells.size) the highest possible available cell
@@ -124,12 +130,12 @@ class MainActivity : AppCompatActivity() {
 
                     // 4-2.3 place the computer move on any available cell
                     board.placeMove(cCell, Board.COMPUTER)
-                }
+                }*/
                 //3-5.2 map the actual board to the ui
                 mapBoardToUi()
             }
 
-            // when computer won
+            //vid 5-5.3 when computer won
             when {
                 board.hasComputerWon() -> tv_result.text = "Computer Won!"
                 board.hasPlayerWon() -> tv_result.text = "Player Won!"

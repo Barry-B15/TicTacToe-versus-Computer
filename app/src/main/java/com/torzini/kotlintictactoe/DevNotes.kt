@@ -100,5 +100,18 @@ package com.torzini.kotlintictactoe
  *          - cut all the old content of the click listener and paste in the if statement
  *          - add a when {} for computer won
  *
+ * vid 7. minimax algorithm
+ * https://www.youtube.com/watch?v=Kv02E5w_wsI&list=PLk7v1Z2rk4hj4qi2TIZmMSiZguB-qe001&index=7
+ *
+ * 1. In Board : create a fun minimax(){}
+ * 2. create a var above that var computersMove()
+ * 3. code fun minimax()
+ * 4. Now go to MainActivity class, onClick()
+ *      when the player has placed a move, we use computer to calculate computer move
+ *      - remove : //if (board.availableCells.isNotEmpty()) { brackets
+ *          we are already checking the is not over so this is no longer needed
+ *
+ * 5. Still in onClick, when we place the move for player, we will call
+ *      board.minimax(depth 0, COMPUTER) passing the initial depth 0 and the player as COMPUTER
  *
  */
