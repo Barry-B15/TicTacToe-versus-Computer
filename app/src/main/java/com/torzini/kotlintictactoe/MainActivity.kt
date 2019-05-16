@@ -107,22 +107,34 @@ class MainActivity : AppCompatActivity() {
 
         //3-5.1 override the onClick()
         override fun onClick(p0: View?) {
-            val cell = Cell(i, j)     // get the cell wit index
-            board.placeMove(cell, Board.PLAYER)
-            // call the placeMove on the cell. always the PLAYER as the computer plays automatically
 
-            //vid 4-2.2 check that available cell is not empty
-            if (board.availableCells.isNotEmpty()) {
-                // vid 4-2.1 get a random cell from empty cell
-                // cCell - computer cell, passing a Random int 0 which is the beginning,
-                // and the board.availableCells.size) the highest possible available cell
-                val cCell = board.availableCells[Random.nextInt(0, board.availableCells.size)]
+            //vid 5-5 check if game is over
+            if (!board.isGameOver) {
 
-                // 4-2.3 place the computer move on any available cell
-                board.placeMove(cCell, Board.COMPUTER)
+                val cell = Cell(i, j)     // get the cell wit index
+                board.placeMove(cell, Board.PLAYER)
+                // call the placeMove on the cell. always the PLAYER as the computer plays automatically
+
+                //vid 4-2.2 check that available cell is not empty
+                if (board.availableCells.isNotEmpty()) {
+                    // vid 4-2.1 get a random cell from empty cell
+                    // cCell - computer cell, passing a Random int 0 which is the beginning,
+                    // and the board.availableCells.size) the highest possible available cell
+                    val cCell = board.availableCells[Random.nextInt(0, board.availableCells.size)]
+
+                    // 4-2.3 place the computer move on any available cell
+                    board.placeMove(cCell, Board.COMPUTER)
+                }
+                //3-5.2 map the actual board to the ui
+                mapBoardToUi()
             }
-            //3-5.2 map the actual board to the ui
-            mapBoardToUi()
+
+            // when computer won
+            when {
+                board.hasComputerWon() -> tv_result.text = "Computer Won!"
+                board.hasPlayerWon() -> tv_result.text = "Player Won!"
+                board.isGameOver -> tv_result.text = "It's a Draw!"
+            }
         }
 
 

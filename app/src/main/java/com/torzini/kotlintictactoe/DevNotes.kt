@@ -75,4 +75,30 @@ package com.torzini.kotlintictactoe
  *          - get a random cell from empty cell
  *      check that the available cell is not empty
  *      place the computer move
+ *
+ * ================================================
+ * vid 5 : Check the game status
+ * https://www.youtube.com/watch?v=jafJ1kGXhJU
+ *
+ * 3 possibilities: player wins, computer wins or, it's a tie
+ * and a 4th possibility, if the app is running
+ *
+ * 1. In the Board class, def a new func hasComputerWon()
+ *
+ * 2. A win will happen when any row or column or a diagonal has equal values
+ *   - Let's check the diagonals 1st
+ *   - then check the rows
+ *
+ * 3. Check if the Player Won; hasPlayerWon()
+ *      copy paste from computer and change all the computer to player
+ *
+ * 4. Create another val to check if game is over
+ *      isGameOver()
+ *
+ * 5. Go to MainActivity class, onClick() to check isGameOver
+ *          - if(!board.isGameOver) {}
+ *          - cut all the old content of the click listener and paste in the if statement
+ *          - add a when {} for computer won
+ *
+ *
  */
