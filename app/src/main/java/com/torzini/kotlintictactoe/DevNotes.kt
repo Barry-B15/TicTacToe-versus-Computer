@@ -9,7 +9,7 @@ package com.torzini.kotlintictactoe
  * 2. Add the new Material design library to build.gradle(app) and sync
  *      implementation 'com.google.android.material:material:1.0.0'
  * 3. Open values > style
- *      - change the AppCompat at the top to use the new MaterialComponet
+ *      - change the AppCompat at the top to use the new MaterialComponent
  *      - change the .DarkActionBar to NoActionBar as we don't need one
  * 4. Open values > colors
  *      - Choose colors as needed
